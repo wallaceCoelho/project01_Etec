@@ -1,3 +1,4 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import React,{useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';//importação de componentes
 
@@ -38,11 +39,18 @@ export default function App() {//Permite que essa função seja exposta para tod
 
 	return (
 	  //Posso fechar as própias tags utiliando a / (<TextInput />)
+	  
 	  //As tags no React Native sempre iniciam com letras maiúsculas
+	  
 	  //View é como se fosse as <div> do HTML, a diferença é que preciso ter uma View principal para mostrar tudo e só podemos englobar uma View dentro de outro View 
     
 //Marcação de texto:	
 	<View style={styles.container}>
+		<LinearGradient
+        	// Background Linear Gradient
+        	colors={['rgba(30,25,25,0.8)', 'transparent']}
+        	style={styles.background}
+      	/>
 		<View style={styles.bloco}>
       		<Text style={styles.titulo}>Calculadora Simples</Text>
       	</View>
