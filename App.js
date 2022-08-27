@@ -111,12 +111,13 @@ export default function App() {//Permite que essa função seja exposta para tod
 //Estilização:
 const styles = StyleSheet.create({
 	container: {
-		overflow: 'hidden',
+		display: 'flex',
 		flex: 1,
 		justifyContent: 'center',
-		alignItens: 'center',
+		alignItens: 'center'
   	},
 	bloco: {
+		display: 'flex',
 		marginTop: 10,
 		width: '80%',
 		marginLeft:'10%',
@@ -126,10 +127,9 @@ const styles = StyleSheet.create({
 		position: 'relative',
 		display: 'flex',
 		flexDirection: 'row',
-		flexWrap: 'wrap',
+		justifyContent: 'space-evenly',
 		marginTop: 40,
-		width: '80%',
-		marginLeft: '10%'
+		width: '100%'
 	},
 
 	titulo: {
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
 	botao: { 
 		backgroundColor: '#000',
 		padding: 10,
-		width: 80,
+		width: '18%',
 		margin: 2,
 		borderRadius: 10
 	},
