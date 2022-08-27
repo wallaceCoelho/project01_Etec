@@ -6,14 +6,36 @@ export default function App() {//Permite que essa função seja exposta para tod
 	//REACT:
 	//usando react js Hooks usestate
 	
-	const [valor1, setValor1] = useState(20);
-	const [valor2, setValor2] = useState(3);
+	const [valor1, setValor1] = useState();
+	const [valor2, setValor2] = useState();
 	const [resultado, setResultado] = useState();
+	let res;
 
 	function somar(){
-		let res = parseFloat(valor1) + parseFloat(valor2);
+		res = parseFloat(valor1) + parseFloat(valor2);
 		setResultado(res);
 	}
+
+	function subtrair(){
+		res = parseFloat(valor1) - parseFloat(valor2);
+		setResultado(res);
+	}
+
+	function dividir(){
+		res = parseFloat(valor1) / parseFloat(valor2);
+		setResultado(res);
+	}
+
+	function multi(){
+		res = parseFloat(valor1) * parseFloat(valor2);
+		setResultado(res);
+	}
+
+	function expo(){
+		res = parseFloat(valor1) ** parseFloat(valor2);
+		setResultado(res);
+	}
+
 	return (
 	  //Posso fechar as própias tags utiliando a / (<TextInput />)
 	  //As tags no React Native sempre iniciam com letras maiúsculas
@@ -22,7 +44,7 @@ export default function App() {//Permite que essa função seja exposta para tod
 //Marcação de texto:	
 	<View style={styles.container}>
 		<View style={styles.bloco}>
-      		<Text style={styles.titulo}>Calculadora Simples!</Text>
+      		<Text style={styles.titulo}>Calculadora Simples</Text>
       	</View>
 		<View style={styles.bloco}>
 			<Text> Valor 1: </Text>
@@ -42,12 +64,39 @@ export default function App() {//Permite que essa função seja exposta para tod
 				keyboardType="numeric"
 			/>
 		</View>
-		<View style={styles.bloco}>
+		<View style={styles.blocoBtn}>
 			<TouchableOpacity 
 				style={styles.botao}
 				onPress = {somar}>
 			
-				<Text style={styles.textoBotao}>Somar</Text>
+				<Text style={styles.textoBotao}>+</Text>
+			</TouchableOpacity>
+
+			<TouchableOpacity 
+				style={styles.botao}
+				onPress = {subtrair}>
+			
+				<Text style={styles.textoBotao}>-</Text>
+			</TouchableOpacity>
+
+			<TouchableOpacity 
+				style={styles.botao}
+				onPress = {dividir}>
+			
+				<Text style={styles.textoBotao}>/</Text>
+			</TouchableOpacity>
+
+			<TouchableOpacity 
+				style={styles.botao}
+				onPress = {multi}>
+			
+				<Text style={styles.textoBotao}>X</Text>
+			</TouchableOpacity>
+			<TouchableOpacity 
+				style={styles.botao}
+				onPress = {expo}>
+			
+				<Text style={styles.textoBotao}>^</Text>
 			</TouchableOpacity>
 		</View>
 		<View style={styles.bloco}>
@@ -62,6 +111,7 @@ export default function App() {//Permite que essa função seja exposta para tod
 //Estilização:
 const styles = StyleSheet.create({
 	container: {
+		overflow: 'hidden',
 		flex: 1,
 		justifyContent: 'center',
 		alignItens: 'center',
@@ -69,8 +119,19 @@ const styles = StyleSheet.create({
 	bloco: {
 		marginTop: 10,
 		width: '80%',
-		marginLeft:'10%'
+		marginLeft:'10%',
+		justifyContent: 'center'
 	},
+	blocoBtn: {
+		position: 'relative',
+		display: 'flex',
+		flexDirection: 'row',
+		flexWrap: 'wrap',
+		marginTop: 40,
+		width: '80%',
+		marginLeft: '10%'
+	},
+
 	titulo: {
 		fontSize: 30,
 		textAlign: 'center'
@@ -80,11 +141,11 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		borderRadius:10
 	},
-	botao: {
+	botao: { 
 		backgroundColor: '#000',
 		padding: 10,
 		width: 80,
-		margin: 'auto',
+		margin: 2,
 		borderRadius: 10
 	},
 	textoBotao: {
